@@ -11,10 +11,10 @@
   <div class="top-bar">
     <h1 id="title"></h1>
   </div>
-  <div class="input-area">
-    <input type="text" placeholder="Location" id="cityInput" size="60">
-    <input type="button" value="Press Here!" id="search-button" onclick="getCityInput();" >
-  </div>  
+  <form action="#" class="input-area">
+    <input type="text" placeholder="Location" id="cityInput" size="20" onkeypress="handle(event)">
+    <input type="button" value="Search" id="search-button" onclick="getCityInput();" >
+  </form>  
     <div class="row">
       <div class="column">
         <h3 class="daylabel" id="day0"></h3>
