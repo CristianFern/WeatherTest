@@ -5,22 +5,64 @@ async function checkWeather(coordinates){
     lng = coordinates[1];
 
 
-    const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=" + lat +"&longitude=" + lng + "&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto";
+    const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=" + lat +"&longitude=" + lng + "&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto&current_weather=true";
 
     const response = await fetch(apiUrl);
     var data = await response.json();
 
     console.log(data);
 
+    document.getElementById("currentTemperature").innerHTML = data.current_weather.temperature + "°C";
+
+    let date = new Date;
+
+    console.log(date);
+
+    let currentTime = date.toLocaleString() ;
+
+    if(data.current_weather.temperature > 37){
+        document.getElementById("currentTemperature").style.color = "red";
+    }
+    else if(data.current_weather.temperature >= 30 && data.current_weather.temperature <37){
+        document.getElementById("currentTemperature").style.color = "orange";
+    }
+    else if(data.current_weather.temperature >= 25 && data.current_weather.temperature <30){
+        document.getElementById("currentTemperature").style.color = "rgb(254, 191, 0)";
+    }
+    else if(data.current_weather.temperature >= 19 && data.current_weather.temperature <25){
+        document.getElementById("currentTemperature").style.color = "green";
+    }
+    else if(data.current_weather.temperature >= 5 && data.current_weather.temperature <19){
+        document.getElementById("currentTemperature").style.color = "rgb(89, 102, 246)";
+    }
+    else if(data.current_weather.temperature >= -10 && data.current_weather.temperature <5){
+        document.getElementById("currentTemperature").style.color = "rgb(59, 74, 243)";
+    }
+    else if(data.current_weather.temperature >= -20 && data.current_weather.temperature <-10){
+        document.getElementById("currentTemperature").style.color = "rgb(31, 48, 243)";
+    }
+    else if(data.current_weather.temperature < -20 ){
+        document.getElementById("currentTemperature").style.color = "rgb(0, 21, 255)";
+    }
+
+
+
+    document.getElementById("currentTime").innerHTML = currentTime;
+
+
+
     for(i=0 ; i < 6 ; i++){
 
         daymax = "day" + i + "max";
         daymin = "day"+ i + "min";
         day = "day"+ i ;
+        
 
         document.querySelector("#" + daymax).innerHTML = data.daily.temperature_2m_max[i] + "°C";
 
         document.querySelector("#" + daymin).innerHTML = data.daily.temperature_2m_min[i] + "°C";
+
+        
 
         
 
@@ -49,7 +91,7 @@ function getCoordinates(){
         var lat = crd.latitude.toString();
         var lng = crd.longitude.toString();
         var coordinates = [lat, lng];
-        console.log("lat:" + lat + "lng:" + lng);
+        
         checkWeather(coordinates);
         return;
     }
@@ -82,7 +124,7 @@ function getCity() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
             var city = response.city;
-            console.log(city);
+          
             document.querySelector('#title').innerHTML = city;
             return;
         }
@@ -101,7 +143,7 @@ function getCityInput(){
     fetch(apiCityUrl)
        .then(response => response.json())
        .then(data =>{
-        console.log(data);
+        
         if (data.status === "OK"){
             var searchLat = data.results[0].geometry.location.lat;
             var searchLng = data.results[0].geometry.location.lng;
