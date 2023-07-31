@@ -32,6 +32,8 @@
 .column{
   float: left;
   padding: 4%;
+ outline: 2px inset white;
+ 
 }
 
 .daylabel{

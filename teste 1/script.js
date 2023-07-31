@@ -61,6 +61,7 @@ function getCoordinates(){
 
     navigator.geolocation.getCurrentPosition(sucess, error, options);
 
+    getCity();
     
 
 }
@@ -88,7 +89,33 @@ function getCity() {
     
 }
 
+function getCityInput(){
+    
+
+    var cityInput = document.querySelector('#cityInput').value;
+    const apiKey = "AIzaSyBJIfWlMAvphaIoOrrMGYm_pIFs3DkCafI";
+    const apiCityUrl =  "https://maps.googleapis.com/maps/api/geocode/json?address=" + cityInput + "&key=" + apiKey;
+
+    fetch(apiCityUrl)
+       .then(response => response.json())
+       .then(data =>{
+        if (data.status === "OK"){
+            var searchLat = data.results[0].geometry.location.lat;
+            var searchLng = data.results[0].geometry.location.lng;
+            var searchCoordinates = [searchLat, searchLng];
+            checkWeather(searchCoordinates);
+            const upperCaseCity = cityInput.charAt(0).toUpperCase() + cityInput.slice(1);
+            document.querySelector("#title").innerHTML = upperCaseCity;
+        }
+        
+        
+       });
+
+        
+
+       
+
+}
 
 
 getCoordinates();
-getCity();
