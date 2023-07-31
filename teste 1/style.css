@@ -1,0 +1,55 @@
+
+.row{
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  padding: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(48, 52, 58, 0.833);
+
+}
+
+.maxlabel{
+  font-size: 35px;
+}
+
+.minlabel{
+  font-size: 25px;
+}
+
+.temperatureMAX{
+  color: rgb(223, 86, 86);
+  padding-top: 0px;
+}
+
+.temperatureMIN{
+  color: rgb(100, 112, 247);
+  font-size: 50px;
+}
+
+.column{
+  float: left;
+  padding: 4%;
+}
+
+.daylabel{
+  font-size: 60px;
+}
+
+.top-bar{
+  text-align: center;
+  font-size: 30px;
+}
+
+.input-area{
+  text-align: center;
+  background-color: rgba(48, 52, 58, 0.833);
+  padding-top: 40px;
+  display:block;
+  
+}
+
+
+
