@@ -16,13 +16,15 @@
     <input type="button" value="Search" id="search-button" onclick="getCityInput();" >
   </form> 
   <div class="currentWeather">
-    <h2>Current Weather</h2>
-    <h2 id="currentTime"></h2>   
-    <h2 id="currentTemperature" style="font-size: 40px;"></h2>
+    <h2 id="currentWeatherTitle">Current Weather</h2>
+    <h2 class="timeTitle" id="currentLocalTime"></h2>    
+    <img src="" alt="" id="currentWeatherIcon" width="150" height="150"> 
+    <h2 id="currentTemperature" style="font-size: 40px;"></h2>    
   </div> 
   <div class="row">
     <div class="column">
       <h3 class="daylabel" id="day0"></h3>
+      <img class = "weatherIcon" src="" alt="" id="day0Icon">
       <h5 class="maxlabel">max</h5>
       <h1 class="temperatureMAX" id="day0max"></h1>
       <h1 class="temperatureMIN" id="day0min"></h1>
@@ -30,6 +32,7 @@
     </div>
     <div class="column">  
       <h3 class="daylabel" id="day1"></h3>
+      <img class = "weatherIcon" src="" alt="" id="day1Icon">
       <h5 class="maxlabel">max</h5> 
       <h1 class="temperatureMAX" id="day1max"></h1>
       <h1 class="temperatureMIN" id="day1min"></h1>
@@ -37,6 +40,7 @@
     </div>
     <div class="column">
         <h3 class="daylabel" id="day2"></h3>
+        <img class = "weatherIcon" src="" alt="" id="day2Icon">
         <h5 class="maxlabel">max</h5>
         <h1 class="temperatureMAX" id="day2max"></h1>
         <h1 class="temperatureMIN" id="day2min"></h1>
@@ -44,6 +48,7 @@
     </div>
     <div class="column">
       <h3 class="daylabel" id="day3"></h3>
+      <img class = "weatherIcon" src="" alt="" id="day3Icon">
       <h5 class="maxlabel">max</h5>
       <h1 class="temperatureMAX" id="day3max"></h1>
       <h1 class="temperatureMIN" id="day3min"></h1>
@@ -51,6 +56,7 @@
     </div>
     <div class="column">
       <h3 class="daylabel" id="day4"></h3>
+      <img class = "weatherIcon" src="" alt="" id="day4Icon">
       <h5 class="maxlabel">max</h5>
       <h1 class="temperatureMAX" id="day4max"></h1>
       <h1 class="temperatureMIN" id="day4min"></h1>
@@ -58,6 +64,7 @@
     </div>
     <div class="column">
       <h3 class="daylabel" id="day5"></h3>
+      <img class = "weatherIcon" src="" alt="" id="day5Icon">
       <h5 class="maxlabel">max</h5>
       <h1 class="temperatureMAX" id="day5max"></h1>
       <h1 class="temperatureMIN" id="day5min"></h1>
