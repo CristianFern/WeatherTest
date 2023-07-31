@@ -62,6 +62,8 @@ function getCoordinates(){
     navigator.geolocation.getCurrentPosition(sucess, error, options);
 
     getCity();
+
+    
     
 
 }
@@ -99,13 +101,23 @@ function getCityInput(){
     fetch(apiCityUrl)
        .then(response => response.json())
        .then(data =>{
+        console.log(data);
         if (data.status === "OK"){
             var searchLat = data.results[0].geometry.location.lat;
             var searchLng = data.results[0].geometry.location.lng;
+            var formattedAdress = data.results[0].formatted_address;
             var searchCoordinates = [searchLat, searchLng];
             checkWeather(searchCoordinates);
-            const upperCaseCity = cityInput.charAt(0).toUpperCase() + cityInput.slice(1);
-            document.querySelector("#title").innerHTML = upperCaseCity;
+            document.getElementById("title").innerHTML = formattedAdress;
+            document.getElementById("cityInput").value = "";
+        }
+        if (data.status === "ZERO_RESULTS") {
+            console.log(data.status);
+            alert(data.status);           
+        }
+        if (data.status === "INVALID_REQUEST") {
+            console.log(data.status);
+            alert(data.status);           
         }
         
         
@@ -115,6 +127,15 @@ function getCityInput(){
 
        
 
+}
+
+
+function handle(e){
+    if (e.keyCode === 13) {
+
+        e.preventDefault();
+        getCityInput();
+    }
 }
 
 
