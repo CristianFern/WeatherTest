@@ -20,7 +20,7 @@ async function checkWeather(coordinates){
     let localTime = data.current_weather.time.slice(11,16);
     let currentLocalTime = "Local Time(" + localTimeDate + ", " + localTime + ")";
 
-    let weatherCodeArray = []
+    document.querySelector("iframe").src = "https://embed.windy.com/embed2.html?lat=" + lat + "&lon=" + lng + "&detailLat=" + lat + "&detailLon=" + lng + "&width=800&height=600&zoom=6&level=surface&overlay=temp&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1";
 
    
 
@@ -268,6 +268,7 @@ function getCity() {
     xhr.onreadystatechange = processRequest;
     xhr.addEventListener("readystatechange", processRequest, false);
 
+    
     function processRequest(e) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);

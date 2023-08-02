@@ -13,7 +13,6 @@ body{
   height: 70px;
   width: 100%;
   background-color: rgb(175, 175, 187);
-  
 
 }
 
@@ -24,17 +23,19 @@ body{
   margin: 0%;
 }
 
-.currentWeather{
-  margin: auto;
+.top-row .currentWeather{
+ 
   margin-top: 30px;
   text-align: center;
   padding: 35px;
   width: 20em;
   border-radius: 50px;
   background-color: white;
-  box-shadow: -7px 7px rgb(146, 145, 145);
+  box-shadow: -7px 7px rgb(146, 145, 145); 
+  position: relative;
   
 }
+
 
 .row{
   padding: 40px;
@@ -89,11 +90,6 @@ body{
 
 
 
-.input-area{
-  text-align: center;
-  padding: 10px;
-  
-}
 
 .currentWeather #cityInput{
   text-transform: uppercase;
@@ -131,7 +127,20 @@ body{
   opacity: 1;
 }
 
+.top-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
 
+.top-row iframe{
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 30px;
+  
+
+}
 
 
 
