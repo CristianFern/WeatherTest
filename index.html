@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAPI & BEBE WEATHER</title>
+  <title>PAPI WEATHER</title>
   <script type="text/javascript" src="script.js"></script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="top-bar">
-    <h1 id="title">PAPI Weather </h1>
+    <h1 id="title">Papi Weather</h1>
   </div>
-  <form action="#" class="input-area">
-    <input type="text" placeholder="Location" id="cityInput" size="20" onkeypress="handle(event)">
-    <input type="button" value="Search" id="search-button" onclick="getCityInput();" >
-  </form> 
   <div class="currentWeather">
+    <form action="#" class="input-area">
+      <input type="text" placeholder="Location" id="cityInput" size="20" onkeypress="handle(event)">
+      <input type="button" value="Search" id="search-button" onclick="getCityInput();" >
+    </form> 
     <h1 id="currentCity"></h1>
     <h2 class="timeTitle" id="currentLocalTime"></h2>    
     <img src="" alt="" id="currentWeatherIcon" width="150" height="150"> 
@@ -24,51 +24,39 @@
   <div class="row">
     <div class="column" style="border-top-left-radius: 50px ; border-bottom-left-radius:50px ;" >
       <h3 class="daylabel" id="day0"></h3>
-      <img class = "weatherIcon" src="" alt="" id="day0Icon">
-      <h5 class="maxlabel">max</h5>
+      <img class = "weatherIcon" src="" alt="" id="day0Icon">      
       <h1 class="temperatureMAX" id="day0max"></h1>
-      <h1 class="temperatureMIN" id="day0min"></h1>
-      <h5 class="minlabel">min</h5>
+      <h1 class="temperatureMIN" id="day0min"></h1>    
     </div>
     <div class="column">  
       <h3 class="daylabel" id="day1"></h3>
       <img class = "weatherIcon" src="" alt="" id="day1Icon">
-      <h5 class="maxlabel">max</h5> 
       <h1 class="temperatureMAX" id="day1max"></h1>
       <h1 class="temperatureMIN" id="day1min"></h1>
-      <h5 class="minlabel">min</h5>  
     </div>
     <div class="column">
         <h3 class="daylabel" id="day2"></h3>
         <img class = "weatherIcon" src="" alt="" id="day2Icon">
-        <h5 class="maxlabel">max</h5>
         <h1 class="temperatureMAX" id="day2max"></h1>
         <h1 class="temperatureMIN" id="day2min"></h1>
-        <h5 class="minlabel">min</h5>
     </div>
     <div class="column">
       <h3 class="daylabel" id="day3"></h3>
       <img class = "weatherIcon" src="" alt="" id="day3Icon">
-      <h5 class="maxlabel">max</h5>
       <h1 class="temperatureMAX" id="day3max"></h1>
       <h1 class="temperatureMIN" id="day3min"></h1>
-      <h5 class="minlabel">min</h5>
     </div>
     <div class="column">
       <h3 class="daylabel" id="day4"></h3>
       <img class = "weatherIcon" src="" alt="" id="day4Icon">
-      <h5 class="maxlabel">max</h5>
       <h1 class="temperatureMAX" id="day4max"></h1>
       <h1 class="temperatureMIN" id="day4min"></h1>
-      <h5 class="minlabel">min</h5>
     </div>
     <div class="column" style="border-top-right-radius: 50px ; border-bottom-right-radius:50px ;">
       <h3 class="daylabel" id="day5"></h3>
       <img class = "weatherIcon" src="" alt="" id="day5Icon">
-      <h5 class="maxlabel">max</h5>
       <h1 class="temperatureMAX" id="day5max"></h1>
       <h1 class="temperatureMIN" id="day5min"></h1>
-      <h5 class="minlabel">min</h5>
     </div>
   </div>  
 </body>
