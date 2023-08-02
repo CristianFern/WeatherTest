@@ -3,6 +3,7 @@
 body{
   background-image: linear-gradient( rgb(49, 49, 251) ,rgb(162, 162, 249));
   margin: 0px;
+
   
 }
 
@@ -11,19 +12,20 @@ body{
   display: flex;
   height: 70px;
   width: 100%;
-  background-color: rgb(113, 113, 135);
+  background-color: rgb(175, 175, 187);
   
 
 }
+
 .top-bar h1{
   padding: 10px;
   font-size: 40px;
-  color: beige;
+  color: rgb(240, 240, 183);
   margin: 0%;
 }
 
 .currentWeather{
- margin: auto;
+  margin: auto;
   margin-top: 30px;
   text-align: center;
   padding: 35px;
@@ -34,42 +36,38 @@ body{
   
 }
 
-
 .row{
-  padding-top: 30px;
-  padding-left: 80px;
-  padding-right: 80px;
-  padding-bottom: 30px;
+  padding: 40px;
+}
+
+.row .temperature-box{
   display: flex;
-  align-items: center;
-  justify-content: center;
   overflow-x: auto;
   overflow-y: hidden;
-  
-  
+  box-shadow: -7px 7px rgb(146, 145, 145);
+  width: 85%;
+  margin: auto;
+  border-radius: 50px;
+  background-color: white;
 }
 
-.maxlabel{
-  font-size: 35px;
-  margin-bottom: auto;
-  
+.row .column .weatherIcon{
+  height: 150px;
+  width: 150px;
 }
 
-.minlabel{
-  font-size: 25px;
-  margin-top: auto;
-}
+
 
 .temperatureMAX{
   color: rgb(223, 86, 86);
   margin-top: 10px;
-  font-size: 50px;
+  font-size: 40px;
   
 }
 
 .temperatureMIN{
   color: rgb(100, 112, 247);
-  font-size: 40px;
+  font-size: 35px;
   margin-bottom: 20px;
   
   
@@ -79,13 +77,13 @@ body{
   float: left;
   width: 20%;
   text-align: center;
-  background-color: white;
   
   
 }
 
 .daylabel{
-  font-size: 60px;
+  font-size: 40px;
+  margin: 25px;
   
 }
 
@@ -97,17 +95,45 @@ body{
   
 }
 
-#cityInput{
+.currentWeather #cityInput{
   text-transform: uppercase;
+  --target-size: 48px;
+  --box-height: var(--target-size);
+  --border-width: 3px;
+  --border-radius: 20px;
+  max-width: 561px;
+  --side-margin: calc(var(--border-radius) / 2);    
+ 
+
+  height: var(--box-height);
   
 }
 
+.currentWeather input[type='search'] {
+  border: var(--border-width) solid var(--dark-gray);
+  border-radius: var(--border-radius);
+  height: 100%;
+  width: 100%;
+  padding-left: calc(var(--side-margin) + var(--icon-size) + 4px);
+  outline: auto;
+  color: var(--dark-gray);
+  font-family: 'Noto Sans', Verdana, sans-serif;
+  font-size: 1rem;
+} 
 
+.currentWeather input[type='search']::placeholder {
+  color: var(--dark-gray);
+  opacity: 1;
+} 
 
-.row .column .weatherIcon{
-  height: 150px;
-  width: 150px;
+.currentWeather input[type='search']:focus {
+  color: var(--light-gray);
+  opacity: 1;
 }
+
+
+
+
 
 
 
