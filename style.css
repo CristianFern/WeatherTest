@@ -1,5 +1,6 @@
-.body{
+body{
 width: 100%;
+background-image: linear-gradient( rgb(49, 49, 251) ,rgb(162, 162, 249));
 
 }
 
@@ -7,13 +8,13 @@ width: 100%;
 .row{
   
   font-size: 30px;
-  color: white;
   padding: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(48, 52, 58, 0.833);
-
+  overflow-x: auto;
+  overflow-y: hidden;
+  
 }
 
 .maxlabel{
@@ -39,13 +40,14 @@ width: 100%;
   
 }
 
-.column{
+.row .column{
   float: left;
   padding: 20px;
   outline: 2px inset white;
   width: 20%;
   text-align: center;
- 
+  background-color: white;
+  
 }
 
 .daylabel{
@@ -60,7 +62,7 @@ width: 100%;
 
 .input-area{
   text-align: center;
-  background-color: rgba(48, 52, 58, 0.833);
+  
   padding: 40px;
   display:block;
 }
@@ -73,11 +75,18 @@ width: 100%;
 .currentWeather{
   text-align: center;
   padding: 35px;
+  font-style: oblique;
+  border-radius: 50px;
+  background-color: white;
 }
 
 .row .column .weatherIcon{
   height: 200;
   width: 200;
 }
+
+
+
+
 
 
