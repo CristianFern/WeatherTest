@@ -1,13 +1,26 @@
-body{
-width: 100%;
-background-image: linear-gradient( rgb(49, 49, 251) ,rgb(162, 162, 249));
 
+
+body{
+  background-image: linear-gradient( rgb(49, 49, 251) ,rgb(162, 162, 249));
+  margin: 0px;
 }
 
 
+.top-bar{
+  height: 70px;
+  width: 100%;
+  background-color: rgb(113, 113, 135);
+
+}
+.top-bar h1{
+  padding: 10px;
+  font-size: 40px;
+  color: beige;
+  margin: 0%;
+}
+
 .row{
-  
-  font-size: 30px;
+
   padding: 100px;
   display: flex;
   align-items: center;
@@ -19,34 +32,36 @@ background-image: linear-gradient( rgb(49, 49, 251) ,rgb(162, 162, 249));
 
 .maxlabel{
   font-size: 35px;
+  margin-bottom: auto;
   
 }
 
 .minlabel{
   font-size: 25px;
-  
+  margin-top: auto;
 }
 
 .temperatureMAX{
   color: rgb(223, 86, 86);
-  padding-top: 0px;
+  margin-top: 10px;
+  font-size: 60px;
   
 }
 
 .temperatureMIN{
   color: rgb(100, 112, 247);
   font-size: 50px;
+  margin-bottom: 10px;
   
   
 }
 
 .row .column{
   float: left;
-  padding: 20px;
-  outline: 2px inset white;
   width: 20%;
   text-align: center;
   background-color: white;
+  
   
 }
 
@@ -55,14 +70,10 @@ background-image: linear-gradient( rgb(49, 49, 251) ,rgb(162, 162, 249));
   
 }
 
-.top-bar{
-  text-align: center;
-  font-size: 30px;
-}
+
 
 .input-area{
   text-align: center;
-  
   padding: 40px;
   display:block;
 }
@@ -75,14 +86,14 @@ background-image: linear-gradient( rgb(49, 49, 251) ,rgb(162, 162, 249));
 .currentWeather{
   text-align: center;
   padding: 35px;
-  font-style: oblique;
+
   border-radius: 50px;
   background-color: white;
 }
 
 .row .column .weatherIcon{
-  height: 200;
-  width: 200;
+  height: 150px;
+  width: 150px;
 }
 
 

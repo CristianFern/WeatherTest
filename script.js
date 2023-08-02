@@ -273,7 +273,7 @@ function getCity() {
             var response = JSON.parse(xhr.responseText);
             var city = response.city;
           
-            document.querySelector('#title').innerHTML = city;
+            document.getElementById('currentCity').innerHTML = city;
             return;
         }
     }
@@ -298,7 +298,7 @@ function getCityInput(){
             var formattedAdress = data.results[0].formatted_address;
             var searchCoordinates = [searchLat, searchLng];
             checkWeather(searchCoordinates);
-            document.getElementById("title").innerHTML = formattedAdress;
+            document.getElementById("currentCity").innerHTML = formattedAdress;
             document.getElementById("cityInput").value = "";
         }
         if (data.status === "ZERO_RESULTS") {
