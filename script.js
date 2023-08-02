@@ -210,7 +210,10 @@ async function checkWeather(coordinates){
 
         document.querySelector("#" + daymin).innerHTML = data.daily.temperature_2m_min[i] + "°C";
 
-        
+
+        weekDay = new Date(data.daily.time[i]).toString().slice(0,3);
+
+        document.getElementById("weekday" + i).innerHTML = weekDay;        
 
         
 

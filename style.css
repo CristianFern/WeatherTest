@@ -84,7 +84,8 @@ body{
 
 .daylabel{
   font-size: 40px;
-  margin: 25px;
+  margin-top: 25px;
+  margin-bottom: 0px;
   
 }
 
@@ -138,8 +139,12 @@ body{
   margin-top: 20px;
   margin-left: 20px;
   padding: 30px;
-  
 
+}
+
+.weekdaylabel{
+  font-size: 25px;
+  
 }
 
 
