@@ -3,8 +3,7 @@
 body{
   background-image: linear-gradient( rgb(49, 49, 251) ,rgb(162, 162, 249));
   margin: 0px;
-
-  
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;  
 }
 
 
@@ -38,7 +37,8 @@ body{
 
 
 .row{
-  padding: 40px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .row .temperature-box{
@@ -84,7 +84,8 @@ body{
 
 .daylabel{
   font-size: 40px;
-  margin: 25px;
+  margin-top: 25px;
+  margin-bottom: 0px;
   
 }
 
@@ -125,6 +126,8 @@ body{
 .currentWeather input[type='search']:focus {
   color: var(--light-gray);
   opacity: 1;
+  
+  
 }
 
 .top-row{
@@ -138,8 +141,86 @@ body{
   margin-top: 20px;
   margin-left: 20px;
   padding: 30px;
-  
 
+}
+
+.weekdaylabel{
+  font-size: 25px;
+  
+}
+
+
+.mid-row{
+  text-align: center;
+  
+}
+
+.mid-row h3{
+  display: inline-block;
+  vertical-align: -webkit-baseline-middle;
+  
+}
+
+.mid-row #days-5{
+  padding-right: 10px;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+
+}
+
+.mid-row #days-14{
+  padding-left: 10px;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 45px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(47px);
+  -ms-transform: translateX(47px);
+  transform: translateX(47px);
 }
 
 
