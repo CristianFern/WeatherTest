@@ -1,6 +1,7 @@
 
 
 async function checkWeather(coordinates){
+    
     lat = coordinates[0];
     lng = coordinates[1];
 
@@ -14,7 +15,7 @@ async function checkWeather(coordinates){
 
     document.getElementById("currentTemperature").innerHTML = data.current_weather.temperature + "°C";
 
-    let date = new Date;
+    
 
     let localTimeDate = data.current_weather.time.slice(8,10) + "/" + data.current_weather.time.slice(5,7) + "/" + data.current_weather.time.slice(0,4);
     let localTime = data.current_weather.time.slice(11,16);
@@ -23,9 +24,8 @@ async function checkWeather(coordinates){
     document.querySelector("iframe").src = "https://embed.windy.com/embed2.html?lat=" + lat + "&lon=" + lng + "&detailLat=" + lat + "&detailLon=" + lng + "&width=800&height=600&zoom=6&level=surface&overlay=temp&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1";
 
    
-
-    
     document.getElementById("currentLocalTime").innerHTML = currentLocalTime;
+
 
     if(data.current_weather.temperature > 37){
         document.getElementById("currentTemperature").style.color = "red";
@@ -54,144 +54,42 @@ async function checkWeather(coordinates){
 
    if (data.current_weather.is_day === 1) {
         //dia
+
+        weatherCode = data.current_weather.weathercode;
+        
       
-        if(data.current_weather.weathercode === 0){
-            document.getElementById("currentWeatherIcon").src = "icons/clearsky_0.png";
-        }
-        else if (data.current_weather.weathercode === 1) {
-            document.getElementById("currentWeatherIcon").src = "icons/mainlyClear_1.png";
-        }
-        else if (data.current_weather.weathercode === 2) {
-            document.getElementById("currentWeatherIcon").src = "icons/partlyClear_2.png";
-        }
-        else if (data.current_weather.weathercode === 3) {
-            document.getElementById("currentWeatherIcon").src = "icons/overcast_3.png";
-        }
-        else if (data.current_weather.weathercode === 45) {
-            document.getElementById("currentWeatherIcon").src = "icons/fog_45.png";
-        }
-        else if (data.current_weather.weathercode === 48) {
-            document.getElementById("currentWeatherIcon").src = "icons/denseFog_48.png";
-        }
-        else if (data.current_weather.weathercode === 51 || data.current_weather.weathercode === 53 || data.current_weather.weathercode === 55) {
-            document.getElementById("currentWeatherIcon").src = "icons/drizzle_51_53_55.png";
-        }
-        else if (data.current_weather.weathercode === 61 || data.current_weather.weathercode === 63 || data.current_weather.weathercode === 65) {
-            document.getElementById("currentWeatherIcon").src = "icons/rain_61_63_65.png";
-        }
-        else if (data.current_weather.weathercode === 66 || data.current_weather.weathercode === 67) {
-            document.getElementById("currentWeatherIcon").src = "icons/freezingRain_66_67.png";
-        }
-        else if (data.current_weather.weathercode === 71 || data.current_weather.weathercode === 73 || data.current_weather.weathercode === 75) {
-            document.getElementById("currentWeatherIcon").src = "icons/snow_71_73_75.png";
-        }
-        else if (data.current_weather.weathercode === 56 || data.current_weather.weathercode === 57 || data.current_weather.weathercode === 77) {
-            document.getElementById("currentWeatherIcon").src = "icons/snowGrains_56_57_77.png";
-        }
-        else if (data.current_weather.weathercode === 80 || data.current_weather.weathercode === 81 || data.current_weather.weathercode === 82) {
-            document.getElementById("currentWeatherIcon").src = "icons/rainShower_80_81_82.png";
-        }
-        else if (data.current_weather.weathercode === 85 || data.current_weather.weathercode === 86) {
-            document.getElementById("currentWeatherIcon").src = "icons/snowShower_85_86.png";
-        }
-        else if (data.current_weather.weathercode === 95 || data.current_weather.weathercode === 96 || data.current_weather.weathercode === 99) {
-            document.getElementById("currentWeatherIcon").src = "icons/rainShower_80_81_82.png";
-        }
-   } else {
+        let iconSrc = loadIcons(weatherCode);
+
+        document.getElementById("currentWeatherIcon").src = iconSrc;
+
+        
+     
+   } else if(data.current_weather.is_day === 0){
         //noite
-        if(data.current_weather.weathercode === 0){
-            document.getElementById("currentWeatherIcon").src = "icons/clearsky_0_night.png";
-        }
-        else if (data.current_weather.weathercode === 1) {
-            document.getElementById("currentWeatherIcon").src = "icons/mainlyClear_1_night.png";
-        }
-        else if (data.current_weather.weathercode === 2) {
-            document.getElementById("currentWeatherIcon").src = "icons/partlyClear_2_night.png";
-        }
-        else if (data.current_weather.weathercode === 3) {
-            document.getElementById("currentWeatherIcon").src = "icons/overcast_3_night.png";
-        }
-        else if (data.current_weather.weathercode === 45) {
-            document.getElementById("currentWeatherIcon").src = "icons/fog_45_night.png";
-        }
-        else if (data.current_weather.weathercode === 48) {
-            document.getElementById("currentWeatherIcon").src = "icons/denseFog_48_night.png";
-        }
-        else if (data.current_weather.weathercode === 51 || data.current_weather.weathercode === 53 || data.current_weather.weathercode === 55) {
-            document.getElementById("currentWeatherIcon").src = "icons/drizzle_51_53_55_night.png";
-        }
-        else if (data.current_weather.weathercode === 61 || data.current_weather.weathercode === 63 || data.current_weather.weathercode === 65) {
-            document.getElementById("currentWeatherIcon").src = "icons/rain_61_63_65_night.png";
-        }
-        else if (data.current_weather.weathercode === 66 || data.current_weather.weathercode === 67) {
-            document.getElementById("currentWeatherIcon").src = "icons/freezingRain_66_67_night.png";
-        }
-        else if (data.current_weather.weathercode === 71 || data.current_weather.weathercode === 73 || data.current_weather.weathercode === 75) {
-            document.getElementById("currentWeatherIcon").src = "icons/snow_71_73_75_night.png";
-        }
-        else if (data.current_weather.weathercode === 56 || data.current_weather.weathercode === 57 || data.current_weather.weathercode === 77) {
-            document.getElementById("currentWeatherIcon").src = "icons/snowGrains_56_57_77_night.png";
-        }
-        else if (data.current_weather.weathercode === 80 || data.current_weather.weathercode === 81 || data.current_weather.weathercode === 82) {
-            document.getElementById("currentWeatherIcon").src = "icons/rainShower_80_81_82_night.png";
-        }
-        else if (data.current_weather.weathercode === 85 || data.current_weather.weathercode === 86) {
-            document.getElementById("currentWeatherIcon").src = "icons/snowShower_85_86_night.png";
-        }
-        else if (data.current_weather.weathercode === 95 || data.current_weather.weathercode === 96 || data.current_weather.weathercode === 99) {
-            document.getElementById("currentWeatherIcon").src = "icons/rainShower_80_81_82_night.png";
-        }
+        
+        weatherCode = data.current_weather.weathercode;
+        
+      
+        let iconLink = loadIcons(weatherCode);
        
+        iconSrc = iconLink.slice( 0,(iconLink.length - 4)) ;
+
+ 
+        document.getElementById("currentWeatherIcon").src = iconSrc + "_night.png";
 
    }
 
    for (let f = 0; f < 6; f++) {
-    const day = data.daily.weathercode[f];
-    let iconNumber = "day" + f + "Icon";
-       
-        if(day === 0){
-            document.getElementById(iconNumber).src = "icons/clearsky_0.png";
-        }
-        else if (day === 1) {
-            document.getElementById(iconNumber).src = "icons/mainlyClear_1.png";
-        }
-        else if (day === 2) {
-            document.getElementById(iconNumber).src = "icons/partlyClear_2.png";
-        }
-        else if (day === 3) {
-            document.getElementById(iconNumber).src = "icons/overcast_3.png";
-        }
-        else if (day === 45) {
-            document.getElementById(iconNumber).src = "icons/fog_45.png";
-        }
-        else if (day === 48) {
-            document.getElementById(iconNumber).src = "icons/denseFog_48.png";
-        }
-        else if (day === 51 || day === 53 || day === 55) {
-            document.getElementById(iconNumber).src = "icons/drizzle_51_53_55.png";
-        }
-        else if (day === 61 || day === 63 || day === 65) {
-            document.getElementById(iconNumber).src = "icons/rain_61_63_65.png";
-        }
-        else if (day === 66 || day === 67) {
-            document.getElementById(iconNumber).src = "icons/freezingRain_66_67.png";
-        }
-        else if (day === 71 || day === 73 || day === 75) {
-            document.getElementById(iconNumber).src = "icons/snow_71_73_75.png";
-        }
-        else if (day === 56 || day === 57 || day === 77) {
-            document.getElementById(iconNumber).src = "icons/snowGrains_56_57_77.png";
-        }
-        else if (day === 80 || day === 81 || day === 82) {
-            document.getElementById(iconNumber).src = "icons/rainShower_80_81_82.png";
-        }
-        else if (day === 85 || day === 86) {
-            document.getElementById(iconNumber).src = "icons/snowShower_85_86.png";
-        }
-        else if (day === 95 || day === 96 || day === 99) {
-            document.getElementById(iconNumber).src = "icons/rainShower_80_81_82.png";
-        }
+
     
+    let iconNumber = "day" + f + "Icon";
+
+    weatherCode = data.daily.weathercode[f];
+
+    iconSrc = loadIcons(weatherCode);
+
+    document.getElementById(iconNumber).src = iconSrc;
+       
    }
 
 
@@ -231,6 +129,7 @@ async function checkWeather(coordinates){
 }
 
 function getCoordinates(){
+    
     var options = {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -317,10 +216,6 @@ function getCityInput(){
         
        });
 
-        
-
-       
-
 }
 
 
@@ -331,6 +226,78 @@ function handle(e){
         getCityInput();
     }
 }
+
+function changeTimespan() {
+//por acabar
+
+    if(document.getElementById("timespan-fortnight").style.display=="none"){
+
+        document.getElementById("timespan-weekly").style.display = "none";
+        document.getElementById("timespan-fortnight").style.display="flex";
+        
+
+    }else if(document.getElementById("timespan-weekly").style.display=="none"){
+        document.getElementById("timespan-weekly").style.display = "flex";
+        document.getElementById("timespan-fortnight").style.display="none";
+
+    }
+
+}
+
+
+
+function loadIcons(weathercode){
+
+
+    let rawWeatherCode;
+
+    if(weathercode === 0){
+        rawWeatherCode =  "icons/clearsky_0.png";
+    }
+    else if (weathercode === 1) {
+        rawWeatherCode = "icons/mainlyClear_1.png";
+    }
+    else if (weathercode === 2) {
+        rawWeatherCode = "icons/partlyClear_2.png";
+    }
+    else if (weathercode === 3) {
+        rawWeatherCode = "icons/overcast_3.png";
+    }
+    else if (weathercode === 45) {
+        rawWeatherCode = "icons/fog_45.png";
+    }
+    else if (weathercode === 48) {
+        rawWeatherCode = "icons/denseFog_48.png";
+    }
+    else if (weathercode === 51 || weathercode === 53 || weathercode === 55) {
+        rawWeatherCode = "icons/drizzle_51_53_55.png";
+    }
+    else if (weathercode === 61 || weathercode === 63 || weathercode === 65) {
+        rawWeatherCode = "icons/rain_61_63_65.png";
+    }
+    else if (weathercode === 66 || weathercode === 67) {
+        rawWeatherCode = "icons/freezingRain_66_67.png";
+    }
+    else if (weathercode === 71 || weathercode === 73 ||weathercode === 75) {
+        rawWeatherCode = "icons/snow_71_73_75.png";
+    }
+    else if (weathercode === 56 || weathercode === 57 || weathercode === 77) {
+        rawWeatherCode = "icons/snowGrains_56_57_77.png";
+    }
+    else if (weathercode === 80 || weathercode === 81 || weathercode === 82) {
+        rawWeatherCode = "icons/rainShower_80_81_82.png";
+    }
+    else if (weathercode === 85 || weathercode === 86) {
+        rawWeatherCode = "icons/snowShower_85_86.png";
+    }
+    else if (weathercode === 95 || weathercode === 96 || weathercode === 99) {
+        rawWeatherCode = "icons/rainShower_80_81_82.png";
+    }
+
+
+    return rawWeatherCode;
+}
+
 
 
 getCoordinates();
