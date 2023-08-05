@@ -24,15 +24,15 @@
     <iframe width="700" height="500" src="" frameborder="0"></iframe>
   </div>
   <div class="mid-row">
-    <h3 id="days-5">5-Days</h3>
+    <h3 id="days-5">6-Days</h3>
     <label class="switch">
       <input type="checkbox">
-      <span class="slider round"></span>
+      <span class="slider round" onclick="changeTimespan()"></span>
     </label>
     <h3 id="days-14">14-Days</h3>
   </div>
-  <div class="row">
-    <div class="temperature-box">
+  <div class="row"> 
+    <div class="temperature-box" id="timespan-weekly" style="display:flex;">
       <div class="column" >
         <h3 class="daylabel" id="day0"></h3>
         <h3 class="weekdaylabel" id="weekday0"></h3>
@@ -75,8 +75,52 @@
         <h1 class="temperatureMAX" id="day5max"></h1>
         <h1 class="temperatureMIN" id="day5min"></h1>
       </div>
-    </div>
-  </div>  
+    </div>    
+    <div class="temperature-box" id="timespan-fortnight" style="display:none;">
+      <div class="column" >
+        <h3 class="daylabel" id="day0"></h3>
+        <h3 class="weekdaylabel" id="weekday0"></h3>
+        <img class = "weatherIcon" src="" alt="" id="day0Icon">      
+        <h1 class="temperatureMAX" id="day0max"></h1>
+        <h1 class="temperatureMIN" id="day0min"></h1>    
+      </div>
+      <div class="column">  
+        <h3 class="daylabel" id="day1"></h3>
+        <h3 class="weekdaylabel" id="weekday1"></h3>
+        <img class = "weatherIcon" src="" alt="" id="day1Icon">
+        <h1 class="temperatureMAX" id="day1max"></h1>
+        <h1 class="temperatureMIN" id="day1min"></h1>
+      </div>
+      <div class="column">
+        <h3 class="daylabel" id="day2"></h3>
+        <h3 class="weekdaylabel" id="weekday2"></h3>
+        <img class = "weatherIcon" src="" alt="" id="day2Icon">
+        <h1 class="temperatureMAX" id="day2max"></h1>
+        <h1 class="temperatureMIN" id="day2min"></h1>
+      </div>
+      <div class="column">
+        <h3 class="daylabel" id="day3"></h3>
+        <h3 class="weekdaylabel" id="weekday3"></h3>
+        <img class = "weatherIcon" src="" alt="" id="day3Icon">
+        <h1 class="temperatureMAX" id="day3max"></h1>
+        <h1 class="temperatureMIN" id="day3min"></h1>
+      </div>
+      <div class="column">
+        <h3 class="daylabel" id="day4"></h3>
+        <h3 class="weekdaylabel" id="weekday4"></h3>
+        <img class = "weatherIcon" src="" alt="" id="day4Icon">
+        <h1 class="temperatureMAX" id="day4max"></h1>
+        <h1 class="temperatureMIN" id="day4min"></h1>
+      </div>
+      <div class="column" >
+        <h3 class="daylabel" id="day5"></h3>
+        <h3 class="weekdaylabel" id="weekday5"></h3>
+        <img class = "weatherIcon" src="" alt="" id="day5Icon">
+        <h1 class="temperatureMAX" id="day5max"></h1>
+        <h1 class="temperatureMIN" id="day5min"></h1>
+      </div>
+  </div>
+  
 </body>
 
 </html>

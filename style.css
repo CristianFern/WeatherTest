@@ -39,9 +39,10 @@ body{
 .row{
   padding-top: 20px;
   padding-bottom: 40px;
+  
 }
 
-.row .temperature-box{
+.row .temperature-box {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
@@ -221,6 +222,16 @@ input:checked + .slider:before {
   -webkit-transform: translateX(47px);
   -ms-transform: translateX(47px);
   transform: translateX(47px);
+}
+
+
+.row #timespan-fortnight{
+  
+  box-shadow: -7px 7px rgb(146, 145, 145);
+  width: 85%;
+  margin: auto;
+  border-radius: 50px;
+  background-color: white;
 }
 
 
