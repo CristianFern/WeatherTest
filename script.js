@@ -6,8 +6,9 @@ async function checkWeather(coordinates){
     lng = coordinates[1];
 
 
-    const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=" + lat +"&longitude=" + lng + "&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto&current_weather=true";
+    const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=" + lat +"&longitude=" + lng + "&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto&current_weather=true&forecast_days=14";
 
+    console.log(apiUrl)
     const response = await fetch(apiUrl);
     var data = await response.json();
 
@@ -26,6 +27,9 @@ async function checkWeather(coordinates){
    
     document.getElementById("currentLocalTime").innerHTML = currentLocalTime;
 
+
+
+    //define a cor da temperatura atual consoante os graus
 
     if(data.current_weather.temperature > 37){
         document.getElementById("currentTemperature").style.color = "red";
@@ -52,6 +56,8 @@ async function checkWeather(coordinates){
         document.getElementById("currentTemperature").style.color = "rgb(0, 21, 255)";
     }
 
+
+    //atribui o icon no tempo atual 1=dia, 0=noite
    if (data.current_weather.is_day === 1) {
         //dia
 
@@ -79,9 +85,11 @@ async function checkWeather(coordinates){
 
    }
 
+
+   //atribui os icons da previsão 6 dias consoante o weathercode
+
    for (let f = 0; f < 6; f++) {
 
-    
     let iconNumber = "day" + f + "Icon";
 
     weatherCode = data.daily.weathercode[f];
@@ -93,9 +101,22 @@ async function checkWeather(coordinates){
    }
 
 
-    
+   //atribui os icons da previsão 14 dias consoante o weathercode
 
+   for (let f = 0; f < 14; f++) {
 
+    let iconNumber = "day" + f + "Icon-fortnight";
+
+    weatherCode = data.daily.weathercode[f];
+
+    iconSrc = loadIcons(weatherCode);
+
+    document.getElementById(iconNumber).src = iconSrc;
+       
+   }
+
+   
+   //preenche os 6 dias na previsão semanal (temperaturas e numero/nome dos dias)
 
     for(i=0 ; i < 6 ; i++){
 
@@ -104,9 +125,9 @@ async function checkWeather(coordinates){
         day = "day"+ i ;
         
 
-        document.querySelector("#" + daymax).innerHTML = data.daily.temperature_2m_max[i] + "°C";
+        document.getElementById(daymax).innerHTML = data.daily.temperature_2m_max[i] + "°C";
 
-        document.querySelector("#" + daymin).innerHTML = data.daily.temperature_2m_min[i] + "°C";
+        document.getElementById(daymin).innerHTML = data.daily.temperature_2m_min[i] + "°C";
 
 
         weekDay = new Date(data.daily.time[i]).toString().slice(0,3);
@@ -121,7 +142,38 @@ async function checkWeather(coordinates){
         let dayDate = daySlice + "/" + monthSlice;
 
 
-        document.querySelector("#" + day).innerHTML = dayDate;
+        document.getElementById(day).innerHTML = dayDate;
+
+    }
+
+
+    //preenche na previsão de 14 dias (temperaturas e numero/nome dos dias)
+
+    for(i=0 ; i < 14 ; i++){
+
+        daymax = "day" + i + "max-fortnight";
+        daymin = "day"+ i + "min-fortnight";
+        day = "day"+ i + "-fortnight" ;
+        
+
+        document.getElementById(daymax).innerHTML = data.daily.temperature_2m_max[i] + "°C";
+
+        document.getElementById(daymin).innerHTML = data.daily.temperature_2m_min[i] + "°C";
+
+
+        weekDay = new Date(data.daily.time[i]).toString().slice(0,3);
+
+        document.getElementById("weekday" + i + "-fortnight").innerHTML = weekDay;        
+
+        
+
+        daySlice = data.daily.time[i].slice(8,10);
+        monthSlice = data.daily.time[i].slice(5,7);
+
+        let dayDate = daySlice + "/" + monthSlice;
+
+
+        document.getElementById(day).innerHTML = dayDate;
 
     }
 
@@ -233,7 +285,7 @@ function changeTimespan() {
     if(document.getElementById("timespan-fortnight").style.display=="none"){
 
         document.getElementById("timespan-weekly").style.display = "none";
-        document.getElementById("timespan-fortnight").style.display="flex";
+        document.getElementById("timespan-fortnight").style.display="grid";
         
 
     }else if(document.getElementById("timespan-weekly").style.display=="none"){
