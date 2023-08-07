@@ -232,6 +232,9 @@ input:checked + .slider:before {
   margin: auto;
   border-radius: 50px;
   background-color: white;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 400px;
+  text-align: center;
 }
 
 
